@@ -283,6 +283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHealth: 5
+  becomesAfterDying: {fileID: 3670539361622465517, guid: 0bb94b8525deb44088fb1b1b19274c0c,
+    type: 3}
 --- !u!1 &4152230403929546629
 GameObject:
   m_ObjectHideFlags: 0

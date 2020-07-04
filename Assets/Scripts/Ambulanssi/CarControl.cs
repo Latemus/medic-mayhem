@@ -153,6 +153,8 @@ public class CarControl : MonoBehaviour {
     steerAngle = maxWheelTurnAngle * Input.GetAxis("Horizontal");
     wheelFL.steerAngle = steerAngle;
     wheelFR.steerAngle = steerAngle;
+    wheelRL.steerAngle = -steerAngle/3;
+    wheelRR.steerAngle = -steerAngle/3;
 
     // Debug info
     RO_BrakeTorque = wheelRL.brakeTorque;
