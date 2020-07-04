@@ -43,9 +43,9 @@ public class SoldierSpawner : MonoBehaviour
         for (int i = 0;  i < waveLimit; i++) 
         {
             for (int soldierCount = 0; soldierCount < limit; soldierCount++)
-                {
-                    SpawnSoldier();
-                }
+            {
+                SpawnSoldier();
+            }
             yield return new WaitForSeconds(10);
         }
     }

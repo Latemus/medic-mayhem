@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 8875754357911466109}
   - component: {fileID: 8875754357911466108}
   - component: {fileID: 2110708471512558264}
+  - component: {fileID: -1958280399520886954}
   m_Layer: 0
   m_Name: Tan Soldier
   m_TagString: Tan
@@ -370,6 +371,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2a59f88a0d76c2749829f5d0332ef6bb, type: 3}
   - {fileID: 8300000, guid: 8c8118e390e26c941a340ac793d836af, type: 3}
   - {fileID: 8300000, guid: e2e1423ddd55e3a4db8515514cf25130, type: 3}
+--- !u!114 &-1958280399520886954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875754358553214728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f20da66bb0427478297b0194962228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  curHealth: 5
 --- !u!1 &8875754358553380004
 GameObject:
   m_ObjectHideFlags: 0
