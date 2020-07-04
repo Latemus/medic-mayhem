@@ -5,12 +5,12 @@ using UnityEngine;
 public class SoldierDecision : MonoBehaviour
 {
     public GameObject shot;
-    public Transform shotSpawn;
     public float fireRate;
 
     private float nextFire;
 
     private GameObject currentEnemy;
+    public GameObject enemyBase;
 
     public float detectionRadius = 5;
 
@@ -23,19 +23,20 @@ public class SoldierDecision : MonoBehaviour
 
     public void EnemyDetected(GameObject newEnemy)
     {
-        Debug.Log("Green tag detected and ready to decide");
+        //Debug.Log("Green tag detected and ready to decide");
         currentEnemy = newEnemy;
     }
 
     void FixedUpdate()
     {
-        if (currentEnemy != null && Time.time > nextFire)
+        Vector3 toEnemy = new Vector3(0,0,0);
+        if (currentEnemy != null) 
         {
-            
-            Vector3 toEnemy = currentEnemy.transform.position - transform.position;
-
-            Debug.Log(toEnemy.sqrMagnitude);
-            if (toEnemy.sqrMagnitude <= detectionRadius * detectionRadius)
+            toEnemy = currentEnemy.transform.position - transform.position;
+        }
+        if (currentEnemy != null && toEnemy.sqrMagnitude <= detectionRadius * detectionRadius)
+        {
+            if (toEnemy.sqrMagnitude <= detectionRadius * detectionRadius && Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 Quaternion quaternionToPlayer = Quaternion.Euler(toEnemy);
@@ -43,25 +44,36 @@ public class SoldierDecision : MonoBehaviour
                 // the second argument, upwards, defaults to Vector3.up
                 Quaternion rotation = Quaternion.LookRotation(toEnemy, Vector3.up);
 
-                Instantiate(shot, shotSpawn.position, rotation);
-
-                if (toEnemy != Vector3.zero)
-                {
-                    MoveCharacter(-toEnemy);
-                }
+                Instantiate(shot, transform.position + Vector3.forward, rotation);
             }
+        }
+        else 
+        {
+            Check_if_enemies_are_nearby();
+            // Move towards enemy base
+            MoveCharacter(enemyBase.transform.position);
         }
     }
 
     void MoveCharacter(Vector3 vectorToMoveTo)
     {
-        //transform.position is the player position
-        // add the "change" (x and y modifications) 
-        //Time.Delta is the amount of time that has passed since the previous frame 
-        //So what we are saying here is: Move my character TO my current poistion + the changes I asked to make (direction) * my current speed * the amount of time that has passed.
-        //this last piece about the time change is to make it look more smooth when your character moves. 
-        myRigidbody.MovePosition(transform.position - vectorToMoveTo * 10 * Time.deltaTime);
+        float step =  1 * Time.deltaTime; // calculate distance to move
+        transform.position = Vector3.MoveTowards(transform.position, enemyBase.transform.position, step);
     }
 
-
+    void Check_if_enemies_are_nearby()
+    {
+        //Use the OverlapBox to detect if there are any other colliders within this box area.
+        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(5,5,5), Quaternion.identity, 0);
+        int i = 0;
+        while (i < hitColliders.Length)
+        {
+            //Debug.Log("Hit : " + hitColliders[i].name + i);
+            if (hitColliders[i].tag != transform.tag && (hitColliders[i].tag == "Green" || hitColliders[i].tag == "Tan"))
+            {
+                currentEnemy = hitColliders[i].transform.gameObject;
+            }
+            i++;
+        }
+    }
 }

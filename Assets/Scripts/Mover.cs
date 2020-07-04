@@ -11,6 +11,8 @@ public class Mover : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>(); //add the rigidbody component to this script for use later. 
         myRigidbody.velocity = transform.forward * speed;
+        Object.Destroy(gameObject, 3.0f);   
     }
+
 
 }

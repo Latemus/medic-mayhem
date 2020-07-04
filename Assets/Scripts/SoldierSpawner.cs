@@ -10,6 +10,7 @@ public class SoldierSpawner : MonoBehaviour
     public GameObject spawnObject;
     public SpawnArea spawn_area;
     public int soldierReserve = 15;
+    public GameObject enemy_base;
 
     [System.Serializable]
     public class SpawnArea
@@ -53,7 +54,8 @@ public class SoldierSpawner : MonoBehaviour
     private void SpawnSoldier()
     {
         Vector3 spawn_location = get_location();
-        Instantiate(soldier, spawn_location, Quaternion.identity);
+        soldier = Instantiate(soldier, spawn_location, Quaternion.identity);
+        soldier.GetComponent<SoldierDecision>().enemyBase = enemy_base;
     }
 
     private Vector3 get_location()
