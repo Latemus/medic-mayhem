@@ -75,9 +75,8 @@ GameObject:
   - component: {fileID: 4152230403919075431}
   - component: {fileID: 4152230403919075430}
   - component: {fileID: 4152230403919075425}
-  - component: {fileID: 4152230403919075432}
   - component: {fileID: 4152230403919075435}
-  - component: {fileID: 4152230403919075434}
+  - component: {fileID: -1283431942900463300}
   m_Layer: 0
   m_Name: Green Soldier
   m_TagString: Green
@@ -134,10 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 6270803711885752686, guid: 6de6c5ab5c3772343b8642cb0cc0749d, type: 3}
+  shot_start_transform: {fileID: 4152230404193122363}
   fireRate: 3
   piuRate: 7
   enemyBase: {fileID: 0}
-  detectionRadius: 8
+  detectionRadius: 15
   piupiu:
   - {fileID: 8300000, guid: 36dcca9375e30b944b846b96f64bf79d, type: 3}
   - {fileID: 8300000, guid: bbf2e9587253086408c1eb634064fa0a, type: 3}
@@ -254,20 +254,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4152230403919075432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4152230403919075424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f20da66bb0427478297b0194962228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  curHealth: 5
 --- !u!54 &4152230403919075435
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -284,7 +270,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &4152230403919075434
+--- !u!114 &-1283431942900463300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,7 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f20da66bb0427478297b0194962228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
   curHealth: 5
 --- !u!1 &4152230403929546629
 GameObject:
@@ -527,7 +512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4152230404193122363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.76, z: 0.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4152230403919075429}
@@ -556,7 +541,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4152230404209512471
 GameObject:

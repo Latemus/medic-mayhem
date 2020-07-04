@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoldierDecision : MonoBehaviour
 {
     public GameObject shot;
+    public GameObject shot_start_transform;
     public float fireRate;
     public float piuRate = 7;
 
@@ -53,7 +54,7 @@ public class SoldierDecision : MonoBehaviour
                 // the second argument, upwards, defaults to Vector3.up
                 Quaternion rotation = Quaternion.LookRotation(toEnemy, Vector3.up);
 
-                Instantiate(shot, transform.position + Vector3.forward, rotation);
+                Instantiate(shot, shot_start_transform.transform.position, rotation);
 
                 if (Time.time > nextPiupiu) 
                 {
@@ -65,7 +66,9 @@ public class SoldierDecision : MonoBehaviour
         }
         else 
         {
-            Check_if_enemies_are_nearby();
+            if (Check_if_enemies_are_nearby()) {
+                return;
+            }
             // Move towards enemy base
             MoveCharacter(enemyBase.transform.position);
         }
@@ -82,7 +85,7 @@ public class SoldierDecision : MonoBehaviour
         transform.rotation = my_rotation;
     }
 
-    void Check_if_enemies_are_nearby()
+    bool Check_if_enemies_are_nearby()
     {
         //Use the OverlapBox to detect if there are any other colliders within this box area.
         Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(5,5,5), Quaternion.identity, 0);
@@ -93,8 +96,10 @@ public class SoldierDecision : MonoBehaviour
             if (hitColliders[i].tag != transform.tag && (hitColliders[i].tag == "Green" || hitColliders[i].tag == "Tan"))
             {
                 currentEnemy = hitColliders[i].transform.gameObject;
+                return true;
             }
             i++;
         }
+        return false;
     }
 }
