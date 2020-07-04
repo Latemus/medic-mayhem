@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CarControl : MonoBehaviour {
+public class CarControl2 : MonoBehaviour {
 
   // PUBLIC
 
@@ -126,14 +126,14 @@ public class CarControl : MonoBehaviour {
     }
 
     // CONTROLS - FORWARD & RearWARD
-    if ( Input.GetKey(KeyCode.Return) ) {
+    if ( Input.GetKey(KeyCode.Space) ) {
       // BRAKE
       torquePower = 0f;
       wheelRL.brakeTorque = brakeTorque;
       wheelRR.brakeTorque = brakeTorque;
     } else {
       // SPEED
-      torquePower = maxTorque * Mathf.Clamp( Input.GetAxis("Vertical"), -1, 1 );
+      torquePower = maxTorque * Mathf.Clamp( Input.GetAxis("Debug Vertical"), -1, 1 );
       wheelRL.brakeTorque = 0f;
       wheelRR.brakeTorque = 0f;
 
@@ -150,7 +150,7 @@ public class CarControl : MonoBehaviour {
 
     // CONTROLS - LEFT & RIGHT
     // apply steering to front wheels
-    steerAngle = maxWheelTurnAngle * Input.GetAxis("Horizontal");
+    steerAngle = maxWheelTurnAngle * Input.GetAxis("Debug Horizontal");
     wheelFL.steerAngle = steerAngle;
     wheelFR.steerAngle = steerAngle;
 
@@ -163,33 +163,5 @@ public class CarControl : MonoBehaviour {
     // SPEED
     // debug info
     RO_speed = GetComponent<Rigidbody>().velocity.magnitude;
-
-    // KEYBOARD INPUT
-
-    // FORWARD
-    if ( Input.GetKey(KeyCode.W) ) {
-      // Debug.Log("FORWARD");
-    }
-
-    // BACKWARD
-    if ( Input.GetKey(KeyCode.S) ) {
-      // Debug.Log("BACKWARD");
-    }
-
-    // LEFT
-    if ( Input.GetKey(KeyCode.A) ) {
-      // Debug.Log("LEFT");
-    }
-
-    // RIGHT
-    if ( Input.GetKey(KeyCode.D) ) {
-      // Debug.Log("RIGHT");
-    }
-
-    // BRAKE
-    if ( Input.GetKey(KeyCode.Space) ) {
-      // Debug.Log("SPACE");
-    }
-
   }
 }
