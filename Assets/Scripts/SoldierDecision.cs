@@ -6,8 +6,10 @@ public class SoldierDecision : MonoBehaviour
 {
     public GameObject shot;
     public float fireRate;
+    public float piuRate = 7;
 
     private float nextFire;
+    private float nextPiupiu;
 
     private GameObject currentEnemy;
     public GameObject enemyBase;
@@ -15,10 +17,12 @@ public class SoldierDecision : MonoBehaviour
     public float detectionRadius = 5;
 
     private Rigidbody myRigidbody; //rigidBody gives the player physics 
-
+    public AudioClip[] piupiu;
+    private AudioSource piuSource;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>(); //add the rigidbody component to this script for use later. 
+        piuSource = GetComponent<AudioSource>();
     }
 
     public void EnemyDetected(GameObject newEnemy)
@@ -45,6 +49,13 @@ public class SoldierDecision : MonoBehaviour
                 Quaternion rotation = Quaternion.LookRotation(toEnemy, Vector3.up);
 
                 Instantiate(shot, transform.position + Vector3.forward, rotation);
+
+                if (Time.time > nextPiupiu) 
+                {
+                    nextPiupiu = Time.time + piuRate;
+                    piuSource.clip = piupiu[Random.Range(0, piupiu.Length)];
+                    piuSource.Play();
+                }
             }
         }
         else 

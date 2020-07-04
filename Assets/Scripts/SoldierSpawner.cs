@@ -54,8 +54,8 @@ public class SoldierSpawner : MonoBehaviour
     private void SpawnSoldier()
     {
         Vector3 spawn_location = get_location();
-        soldier = Instantiate(soldier, spawn_location, Quaternion.identity);
-        soldier.GetComponent<SoldierDecision>().enemyBase = enemy_base;
+        GameObject new_soldier = Instantiate(soldier, spawn_location, Quaternion.identity);
+        new_soldier.GetComponent<SoldierDecision>().enemyBase = enemy_base;
     }
 
     private Vector3 get_location()
