@@ -7,8 +7,12 @@ TagManager:
   - woundedSoldier
   - ambulance
   - ambulanceParent
+<<<<<<< HEAD
   - Green
   - Tan
+=======
+  - truckBed
+>>>>>>> e12ca6b9eddc4d482e0085904c9322cefc0e9a15
   layers:
   - Default
   - TransparentFX
