@@ -45,6 +45,11 @@ public class SoldierDecision : MonoBehaviour
                 nextFire = Time.time + fireRate;
                 Quaternion quaternionToPlayer = Quaternion.Euler(toEnemy);
 
+                Vector3 relativePos = currentEnemy.transform.position - transform.position;
+                // the second argument, upwards, defaults to Vector3.up
+                Quaternion my_rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+                transform.rotation = my_rotation;
+
                 // the second argument, upwards, defaults to Vector3.up
                 Quaternion rotation = Quaternion.LookRotation(toEnemy, Vector3.up);
 
@@ -70,6 +75,11 @@ public class SoldierDecision : MonoBehaviour
     {
         float step =  1 * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, enemyBase.transform.position, step);
+
+        Vector3 relativePos = enemyBase.transform.position - transform.position;
+        // the second argument, upwards, defaults to Vector3.up
+        Quaternion my_rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        transform.rotation = my_rotation;
     }
 
     void Check_if_enemies_are_nearby()
