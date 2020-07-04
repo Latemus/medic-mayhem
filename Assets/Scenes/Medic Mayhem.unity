@@ -1128,6 +1128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ad99bd2a9aa42969425e7793af54fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambulance: {fileID: 2124915279}
 --- !u!65 &1328858100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1931,6 +1932,20 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 1000
   maxSteeringAngle: 40
+--- !u!114 &2124915281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124915279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3202dd0755640b4ac78499838df84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierCount: 5
+  maxSoldiers: 5
 --- !u!54 &2124915282
 Rigidbody:
   m_ObjectHideFlags: 0

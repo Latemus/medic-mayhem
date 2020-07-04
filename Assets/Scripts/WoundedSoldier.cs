@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WoundedSoldier : MonoBehaviour
 {
+    public GameObject ambulance;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class WoundedSoldier : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "ambulance")
+        if (collider.tag == "ambulance" && ambulance.GetComponent<AmbulanceStatus>().HasSpace())
         {
             Destroy(this.gameObject);
 
