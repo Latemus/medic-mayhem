@@ -5,7 +5,7 @@ using UnityEngine;
 public class WoundedSoldier : MonoBehaviour
 {
     GameObject ambulance;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,14 @@ public class WoundedSoldier : MonoBehaviour
             this.transform.position = ambulance.transform.GetChild(0).transform.position + new Vector3 (0, 0.25f, 0);
             this.GetComponent<BoxCollider>().enabled = false;
 
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.tag == "truckBed")
+        {
+            this.GetComponent<BoxCollider>().enabled = true;
         }
     }
 }
