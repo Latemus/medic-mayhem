@@ -8,10 +8,10 @@ public class CarControl : MonoBehaviour {
   public bool driveable = false;
 
   // Wheel Wrapping Objects
-  /*public Transform frontLeftWheelWrapper;
+  public Transform frontLeftWheelWrapper;
   public Transform frontRightWheelWrapper;
   public Transform rearLeftWheelWrapper;
-  public Transform rearRightWheelWrapper;*/
+  public Transform rearRightWheelWrapper;
 
   // Wheel Meshes
   // Front
