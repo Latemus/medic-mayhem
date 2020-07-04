@@ -142,11 +142,11 @@ public class CarControl2 : MonoBehaviour {
     wheelRR.motorTorque = torquePower;
     wheelRL.motorTorque = torquePower;
 
-    // Debug.Log(Input.GetAxis("Vertical"));
+   /* // Debug.Log(Input.GetAxis("Vertical"));
     Debug.Log("torquePower: " + torquePower);
     Debug.Log("brakeTorque RL: " + wheelRL.brakeTorque);
     Debug.Log("brakeTorque RR: " + wheelRR.brakeTorque);
-    Debug.Log("steerAngle: " + steerAngle);
+    Debug.Log("steerAngle: " + steerAngle);*/
 
     // CONTROLS - LEFT & RIGHT
     // apply steering to front wheels
