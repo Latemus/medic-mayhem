@@ -5,11 +5,13 @@ using UnityEngine;
 public class WoundedSoldier : MonoBehaviour
 {
     GameObject ambulance;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         ambulance = GameObject.FindWithTag("ambulanceParent");
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class WoundedSoldier : MonoBehaviour
         if (collider.tag == "truckBed")
         {
             this.GetComponent<BoxCollider>().enabled = true;
+            rb.velocity = new Vector3(0, 0, 0);
         }
     }
 }

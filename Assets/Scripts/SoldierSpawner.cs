@@ -9,6 +9,7 @@ public class SoldierSpawner : MonoBehaviour
     private float next_spawn_time;
     public GameObject spawnObject;
     public SpawnArea spawn_area;
+    public int soldierReserve = 15;
     public GameObject enemy_base;
 
     [System.Serializable]
@@ -19,13 +20,33 @@ public class SoldierSpawner : MonoBehaviour
         public float offset_z;
     };
 
+    void Start()
+    {
+        StartCoroutine(StartWave());
+    }
+
     // Update is called once per physics frame
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         if (next_spawn_time < Time.time)
         {
             SpawnSoldier();
             next_spawn_time = Time.time + wait_time_between_spawning;
+        }
+    }*/
+
+    public IEnumerator StartWave()
+    {
+        int limit = 5;
+        int waveLimit = 3;
+        
+        for (int i = 0;  i < waveLimit; i++) 
+        {
+            for (int soldierCount = 0; soldierCount < limit; soldierCount++)
+                {
+                    SpawnSoldier();
+                }
+            yield return new WaitForSeconds(10);
         }
     }
 
