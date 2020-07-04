@@ -7,12 +7,9 @@ public class SoldierDetection : MonoBehaviour
     //When the Primitive collides with the walls, it will reverse direction
     private void OnTriggerEnter(Collider other)
     {
-         if(other.tag == "Green")
+        if(other.tag != transform.parent.tag && (other.tag == "Green" || other.tag == "Tan"))
         {
-            Debug.Log("Green tag detected");
             transform.parent.GetComponent<SoldierDecision>().EnemyDetected(other.transform.gameObject);
         }
-        
     }
-
 }
