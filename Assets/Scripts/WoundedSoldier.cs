@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class WoundedSoldier : MonoBehaviour
 {
-    public GameObject ambulance;
+    GameObject ambulance;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        ambulance = GameObject.FindWithTag("ambulanceParent");
     }
 
     // Update is called once per frame
@@ -21,7 +22,8 @@ public class WoundedSoldier : MonoBehaviour
     {
         if (collider.tag == "ambulance" && ambulance.GetComponent<AmbulanceStatus>().HasSpace())
         {
-            Destroy(this.gameObject);
+            this.transform.position = ambulance.transform.GetChild(0).transform.position + new Vector3 (0, 0.25f, 0);
+            this.GetComponent<BoxCollider>().enabled = false;
 
         }
     }
