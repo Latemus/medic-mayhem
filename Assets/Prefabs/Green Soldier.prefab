@@ -669,6 +669,7 @@ GameObject:
   - component: {fileID: 4823382461875724570}
   - component: {fileID: 990121598313222042}
   - component: {fileID: 4977244967758670628}
+  - component: {fileID: 1939310906808356342}
   m_Layer: 0
   m_Name: Green Soldier
   m_TagString: Green
@@ -845,6 +846,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1939310906808356342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543696649257653313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f20da66bb0427478297b0194962228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  curHealth: 5
 --- !u!1 &5781120904690451448
 GameObject:
   m_ObjectHideFlags: 0
