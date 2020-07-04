@@ -18,6 +18,6 @@ public class MainMenu : MonoBehaviour
 
     public void NextScene()
     {
-        SceneManager.LoadScene("Keppi and Porkkana");
+        SceneManager.LoadScene("Medic Mayhem");
     }
 }
