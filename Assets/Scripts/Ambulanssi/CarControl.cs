@@ -7,6 +7,12 @@ public class CarControl : MonoBehaviour {
 
   public bool driveable = false;
 
+  public string upAndDownArrowsWithScheme = "Vertical";
+
+  public string leftAndRightArrowsWithScheme = "Horizontal";
+
+  public KeyCode brakeKey;
+
   // Wheel Wrapping Objects
   public Transform frontLeftWheelWrapper;
   public Transform frontRightWheelWrapper;
@@ -126,14 +132,14 @@ public class CarControl : MonoBehaviour {
     }
 
     // CONTROLS - FORWARD & RearWARD
-    if ( Input.GetKey(KeyCode.Return) ) {
+    if ( Input.GetKey(brakeKey) ) {
       // BRAKE
       torquePower = 0f;
       wheelRL.brakeTorque = brakeTorque;
       wheelRR.brakeTorque = brakeTorque;
     } else {
       // SPEED
-      torquePower = maxTorque * Mathf.Clamp( Input.GetAxis("Vertical"), -1, 1 );
+      torquePower = maxTorque * Mathf.Clamp( Input.GetAxis(upAndDownArrowsWithScheme), -1, 1 );
       wheelRL.brakeTorque = 0f;
       wheelRR.brakeTorque = 0f;
 
@@ -153,7 +159,7 @@ public class CarControl : MonoBehaviour {
 
     // CONTROLS - LEFT & RIGHT
     // apply steering to front wheels
-    steerAngle = maxWheelTurnAngle * Input.GetAxis("Horizontal");
+    steerAngle = maxWheelTurnAngle * Input.GetAxis(leftAndRightArrowsWithScheme);
     wheelFL.steerAngle = steerAngle;
     wheelFR.steerAngle = steerAngle;
     wheelRL.steerAngle = -steerAngle/4f;
