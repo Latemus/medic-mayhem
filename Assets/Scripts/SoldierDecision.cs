@@ -30,18 +30,7 @@ public class SoldierDecision : MonoBehaviour
         piuSource = GetComponent<AudioSource>();
         StartCoroutine(BounceBounce());
         NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-        //tähän että tan tagilla greenBase ja greenillä tanBase
-        /*if (this.tag == "tan")
-        {
-            enemyBase = GameObject.Find("GreenBase");
-        }
-        else
-        {
-            enemyBase = GameObject.Find("TanBase");
-        }*/
     }
-
 
     public IEnumerator BounceBounce()
     {

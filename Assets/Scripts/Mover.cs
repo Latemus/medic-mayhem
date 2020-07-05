@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
+    public GameObject becomesAfterDying;
+
     public float speed;
     private Rigidbody myRigidbody; //rigidBody gives the player physics 
     void Start ()
@@ -20,8 +22,12 @@ public class Mover : MonoBehaviour
             col.transform.gameObject.GetComponent<SoldierHealth>().curHealth -= 1;
             if (col.transform.gameObject.GetComponent<SoldierHealth>().curHealth < 1) 
             {
+                int faceUpOrDown = Random.Range (0, 2);
+                GameObject new_soldier = Instantiate(becomesAfterDying, col.transform.position,
+                Quaternion.Euler(new Vector3(90 + faceUpOrDown*180, 0, 0)));
                 Destroy(col.transform.gameObject);
             }
+            
             Destroy(gameObject); 
         }
     }
