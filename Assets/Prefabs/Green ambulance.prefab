@@ -480,10 +480,10 @@ MonoBehaviour:
   upAndDownArrowsWithScheme: Vertical-P2
   leftAndRightArrowsWithScheme: Horizontal-P2
   brakeKey: 32
-  frontLeftWheelWrapper: {fileID: 2962756189606741056}
-  frontRightWheelWrapper: {fileID: 4257787584331622603}
-  rearLeftWheelWrapper: {fileID: 7253547254592630263}
-  rearRightWheelWrapper: {fileID: 3449161135352607534}
+  frontLeftWheelWrapper: {fileID: 0}
+  frontRightWheelWrapper: {fileID: 0}
+  rearLeftWheelWrapper: {fileID: 0}
+  rearRightWheelWrapper: {fileID: 0}
   frontLeftWheelMesh: {fileID: 2962756189606741056}
   frontRightWheelMesh: {fileID: 4257787584331622603}
   rearLeftWheelMesh: {fileID: 7253547254592630263}
