@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MedicalTentBehaviour : MonoBehaviour
 {
-    private int SOLDIER_SPAWN_TIME = 3;
+    private int SOLDIER_SPAWN_TIME = 15;
     public GameObject spawnObject;
     public SpawnArea spawnArea;
     public GameObject soldier;
