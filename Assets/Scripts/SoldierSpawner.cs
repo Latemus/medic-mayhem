@@ -45,8 +45,9 @@ public class SoldierSpawner : MonoBehaviour
             for (int soldierCount = 0; soldierCount < limit; soldierCount++)
             {
                 SpawnSoldier();
+                yield return new WaitForSeconds(wait_time_between_spawning);
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(30);
         }
     }
 

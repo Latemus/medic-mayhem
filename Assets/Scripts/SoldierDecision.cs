@@ -24,7 +24,21 @@ public class SoldierDecision : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>(); //add the rigidbody component to this script for use later. 
         piuSource = GetComponent<AudioSource>();
+        StartCoroutine(BounceBounce());
     }
+
+
+    public IEnumerator BounceBounce()
+    {
+        // Wait that the soldier drops to the ground
+        yield return new WaitForSeconds(2);
+        while (true) 
+        {
+            yield return new WaitForSeconds(Random.Range(0.7f,0.8f));
+            myRigidbody.velocity = new Vector3(0, 3, 0);
+        }
+    }
+
 
     public void EnemyDetected(GameObject newEnemy)
     {

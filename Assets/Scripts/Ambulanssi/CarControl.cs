@@ -139,8 +139,11 @@ public class CarControl : MonoBehaviour {
 
     }
     // Apply torque
+    wheelFR.motorTorque = torquePower;
+    wheelFL.motorTorque = torquePower;
     wheelRR.motorTorque = torquePower;
     wheelRL.motorTorque = torquePower;
+
 
     /*// Debug.Log(Input.GetAxis("Vertical"));
     Debug.Log("torquePower: " + torquePower);
@@ -153,8 +156,8 @@ public class CarControl : MonoBehaviour {
     steerAngle = maxWheelTurnAngle * Input.GetAxis("Horizontal");
     wheelFL.steerAngle = steerAngle;
     wheelFR.steerAngle = steerAngle;
-    wheelRL.steerAngle = -steerAngle/3;
-    wheelRR.steerAngle = -steerAngle/3;
+    wheelRL.steerAngle = -steerAngle/4f;
+    wheelRR.steerAngle = -steerAngle/4f;
 
     // Debug info
     RO_BrakeTorque = wheelRL.brakeTorque;

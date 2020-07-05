@@ -1,0 +1,16 @@
+- Pärinä äänet
+- Kahden pelaajan kontrollit
+- Bugi: Molempien autojen keräämät ruumit teleporttaavat vain toisen auton sisään
+- Win/lose condition
+- Ruudulle teksti, kumpi voitti, pelialueen reset
+- Pisteet
+- Potilaiden kotiuttamiseen pieni viive, että eivät kotiudu samalla sekunnilla. Lisäksi pitempi viive parantumiselle. 
+- Ambulanssin katolle vihreä/sininen risti
+- Sotilaiden levittäytyminen kartalle, esim. pitävät 5 metrin välit ja jokainen sotilas valitsee itselleen viholliskohteen, jota kukaan muu ei ole vielä valinnut. 
+- Jos ruumis tippuu kyydistä, cooldown takaisin nostamiseen
+- AI navmesh ambulanssille
+- Sotilaiden yliajaminen
+- Jousituksen ja iskareiden "löysyttäminen", jotta autot pomppii hauskasti
+- Varjot renderöitymään kauemmas (käännösaikainen juttu?)
+- Julkaisu itch.io
+? 3 kenttäsairaalaa
