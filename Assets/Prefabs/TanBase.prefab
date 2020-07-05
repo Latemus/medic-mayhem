@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7356980397174419054}
   - component: {fileID: 7356980397174419055}
   - component: {fileID: 7356980397174418960}
-  - component: {fileID: 7356980397174419051}
+  - component: {fileID: -578772106917229015}
   m_Layer: 0
   m_Name: TanBase
   m_TagString: Tan
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHealth: 20
   becomesAfterDying: {fileID: 0}
---- !u!114 &7356980397174419051
+--- !u!114 &-578772106917229015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,3 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ebb54eb8b48e54c8e8e0fabcc44f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  greenWinAnimation: {fileID: 0}
+  tanWinAnimation: {fileID: 0}

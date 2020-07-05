@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SoldierDecision : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class SoldierDecision : MonoBehaviour
     public GameObject shot_start_transform;
     public float fireRate;
     public float piuRate = 7;
+
+    // navigation
+    private UnityEngine.AI.NavMeshAgent agent;
 
     private float nextFire;
     private float nextPiupiu;
@@ -25,6 +29,17 @@ public class SoldierDecision : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>(); //add the rigidbody component to this script for use later. 
         piuSource = GetComponent<AudioSource>();
         StartCoroutine(BounceBounce());
+        NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        //tähän että tan tagilla greenBase ja greenillä tanBase
+        /*if (this.tag == "tan")
+        {
+            enemyBase = GameObject.Find("GreenBase");
+        }
+        else
+        {
+            enemyBase = GameObject.Find("TanBase");
+        }*/
     }
 
 
@@ -70,6 +85,8 @@ public class SoldierDecision : MonoBehaviour
 
                 Instantiate(shot, shot_start_transform.transform.position, rotation);
 
+                GetComponent<NavMeshAgent>().destination = transform.position;
+
                 if (Time.time > nextPiupiu) 
                 {
                     nextPiupiu = Time.time + piuRate;
@@ -80,7 +97,8 @@ public class SoldierDecision : MonoBehaviour
         }
         else 
         {
-            if (Check_if_enemies_are_nearby()) {
+            if (Check_if_enemies_are_nearby())
+            {
                 return;
             }
             // Move towards enemy base
@@ -90,13 +108,17 @@ public class SoldierDecision : MonoBehaviour
 
     void MoveCharacter(Vector3 vectorToMoveTo)
     {
-        float step =  1 * Time.deltaTime; // calculate distance to move
+        //Debug.Log("character moving");
+
+        GetComponent<NavMeshAgent>().destination = vectorToMoveTo;
+
+        /*float step =  1 * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, enemyBase.transform.position, step);
 
         Vector3 relativePos = enemyBase.transform.position - transform.position;
         // the second argument, upwards, defaults to Vector3.up
         Quaternion my_rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-        transform.rotation = my_rotation;
+        transform.rotation = my_rotation;*/
     }
 
     bool Check_if_enemies_are_nearby()
