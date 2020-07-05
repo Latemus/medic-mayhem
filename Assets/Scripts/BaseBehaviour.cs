@@ -21,9 +21,14 @@ public class BaseBehaviour : MonoBehaviour
     {
         if (this.gameObject.tag == "Green") {
             Debug.Log("Tan WINS!");
+
         } else {
             Debug.Log("Green WINS!");
         }
+        
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }    
 
 
