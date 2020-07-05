@@ -34,8 +34,14 @@ public class WoundedSoldier : MonoBehaviour
     {
         if (collider.tag == "truckBed")
         {
-            this.GetComponent<BoxCollider>().enabled = true;
+            StartCoroutine(ActivateColliderWithAmbulance());
             rb.velocity = new Vector3(0, 0, 0);
         }
     }
+
+    public IEnumerator ActivateColliderWithAmbulance()
+    {
+        yield return new WaitForSeconds(2);
+        this.GetComponent<BoxCollider>().enabled = true;
+    } 
 }
