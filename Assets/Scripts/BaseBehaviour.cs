@@ -16,7 +16,7 @@ public class BaseBehaviour : MonoBehaviour
     {
         
     }
-
+/*
     void OnDestroy()
     {
         if (this.gameObject.tag == "Green") {
@@ -30,6 +30,6 @@ public class BaseBehaviour : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }    
-
+*/
 
 }
