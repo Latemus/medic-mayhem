@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2101651242774641006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2101651242774641007}
-  m_Layer: 0
-  m_Name: GreenBase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2101651242774641007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101651242774641006}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.34, y: 0.137, z: 17.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2101651244156127733}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101651243124479489
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2101651244156127733}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2101651243124479492
 MonoBehaviour:
@@ -76,13 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldier: {fileID: 4152230403919075424, guid: 5d8b7af3d9136924a80073825ac95a31, type: 3}
   wait_time_between_spawning: 2
-  spawnObject: {fileID: 2101651242774641006}
+  spawnObject: {fileID: 0}
   spawn_area:
     offset_x: 7
     y: 15
     offset_z: 7
   soldierReserve: 15
-  enemy_base: {fileID: 2101651244306678580}
+  enemy_base: {fileID: 0}
 --- !u!114 &2101651243124479495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,13 +67,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldier: {fileID: 7804120539913217156, guid: ffe5b1fe90549ad4aae985e0e6cf772c, type: 3}
   wait_time_between_spawning: 2
-  spawnObject: {fileID: 2101651244306678580}
+  spawnObject: {fileID: 0}
   spawn_area:
     offset_x: 7
     y: 15
     offset_z: 7
   soldierReserve: 15
-  enemy_base: {fileID: 2101651242774641006}
+  enemy_base: {fileID: 0}
 --- !u!1 &2101651243203991925
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,9 +102,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2101651244306678581}
   - {fileID: 2101651243124479494}
-  - {fileID: 2101651242774641007}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,33 +118,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e33c7ab56d6b5749913778149043a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2101651244306678580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2101651244306678581}
-  m_Layer: 0
-  m_Name: TanBase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2101651244306678581
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101651244306678580}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.56, y: 0.137, z: -21.24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2101651244156127733}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
