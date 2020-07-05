@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BaseBehaviour : MonoBehaviour
 {
-    public GameObject greenWinAnimation;
-    public GameObject tanWinAnimation;
+    public GameObject WinAnimation;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +20,7 @@ public class BaseBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
-        if (this.gameObject.tag == "Green") {
-            Debug.Log("Tan WINS!");
-
-        } else {
-            Debug.Log("Green WINS!");
-        }
+        WinAnimation.GetComponent<WinTextAnimation>().victory = true; 
         GameStateController.instance.ResetGame();        
     }
 }
