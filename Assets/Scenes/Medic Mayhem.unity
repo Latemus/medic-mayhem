@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2086845633}
-  m_IndirectSpecularColor: {r: 0.20625111, g: 0.22240031, b: 0.27198508, a: 1}
+  m_IndirectSpecularColor: {r: 0.20625111, g: 0.22240031, b: 0.27198505, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3717,6 +3717,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8361000895177013421, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72cf63a3eeadb5342a3e179e4aec45bb, type: 2}
+    - target: {fileID: 8361000895177013421, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72cf63a3eeadb5342a3e179e4aec45bb, type: 2}
+    - target: {fileID: 8361000895177013421, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7820ceae954c144b2b66d91de7e92d7c, type: 2}
+    - target: {fileID: 8361000895177013421, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: faef60df5ba65de418598a4c9091065d, type: 2}
     - target: {fileID: 8361000895177013423, guid: 6daa56a2f6f634ec287609fdd44efc25,
         type: 3}
       propertyPath: enemyBase
@@ -3833,6 +3853,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 172
       objectReference: {fileID: 0}
+    - target: {fileID: 8361000895745349106, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72cf63a3eeadb5342a3e179e4aec45bb, type: 2}
+    - target: {fileID: 8361000895745349106, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72cf63a3eeadb5342a3e179e4aec45bb, type: 2}
+    - target: {fileID: 8361000895745349106, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72cf63a3eeadb5342a3e179e4aec45bb, type: 2}
+    - target: {fileID: 8361000895745349106, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0221fd6344744cb4bfe721af796719f, type: 2}
     - target: {fileID: 8361000895745349108, guid: 6daa56a2f6f634ec287609fdd44efc25,
         type: 3}
       propertyPath: spawnArea.offset_x
