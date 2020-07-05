@@ -477,6 +477,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   driveable: 1
+  upAndDownArrowsWithScheme: Vertical-P2
+  leftAndRightArrowsWithScheme: Horizontal-P2
+  brakeKey: 32
   frontLeftWheelWrapper: {fileID: 2962756189606741056}
   frontRightWheelWrapper: {fileID: 4257787584331622603}
   rearLeftWheelWrapper: {fileID: 7253547254592630263}

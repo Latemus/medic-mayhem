@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 6903454510332981925}
   - component: {fileID: 6903454510332981924}
   m_Layer: 0
-  m_Name: Tan ambulance 2
+  m_Name: Tan ambulance
   m_TagString: ambulanceParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,6 +257,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   driveable: 1
+  upAndDownArrowsWithScheme: Vertical
+  leftAndRightArrowsWithScheme: Horizontal
+  brakeKey: 13
   frontLeftWheelWrapper: {fileID: 0}
   frontRightWheelWrapper: {fileID: 0}
   rearLeftWheelWrapper: {fileID: 0}
