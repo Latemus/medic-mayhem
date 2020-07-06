@@ -480,14 +480,6 @@ MonoBehaviour:
   upAndDownArrowsWithScheme: Vertical-P2
   leftAndRightArrowsWithScheme: Horizontal-P2
   brakeKey: 32
-  frontLeftWheelWrapper: {fileID: 0}
-  frontRightWheelWrapper: {fileID: 0}
-  rearLeftWheelWrapper: {fileID: 0}
-  rearRightWheelWrapper: {fileID: 0}
-  frontLeftWheelMesh: {fileID: 2962756189606741056}
-  frontRightWheelMesh: {fileID: 4257787584331622603}
-  rearLeftWheelMesh: {fileID: 7253547254592630263}
-  rearRightWheelMesh: {fileID: 3449161135352607534}
   wheelFL: {fileID: 4340055665003320507}
   wheelFR: {fileID: 3230211543350948572}
   wheelRL: {fileID: 8220215081447879615}
@@ -843,8 +835,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9400336, y: 0.43300962, z: 0.6251866}
-  m_Center: {x: 0.5394365, y: 0.0873909, z: 3.9887654e-15}
+  m_Size: {x: 0.49, y: 0.43300962, z: 0.54}
+  m_Center: {x: 0.3, y: 0.05, z: 3.9887654e-15}
 --- !u!65 &5502302549084211871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -856,7 +848,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6404934, y: 0.1403816, z: 0.6251866}
+  m_Size: {x: 1.46, y: 0.1, z: 0.41}
   m_Center: {x: 0.18920638, y: -0.20129675, z: 5.556803e-16}
 --- !u!1 &6866594204520084695
 GameObject:
@@ -979,7 +971,6 @@ GameObject:
   - component: {fileID: 816442047212813049}
   - component: {fileID: 3407756635093708039}
   - component: {fileID: 7848474434495530684}
-  - component: {fileID: 3539927320948838290}
   - component: {fileID: 2884777329183725737}
   - component: {fileID: 7584628809889097362}
   - component: {fileID: 4614271717023034069}
@@ -1053,20 +1044,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3539927320948838290
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7688726836960236447}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -510183498026054056, guid: 611e8b6fd54b64df3b3391231e0a9151, type: 3}
 --- !u!65 &2884777329183725737
 BoxCollider:
   m_ObjectHideFlags: 0

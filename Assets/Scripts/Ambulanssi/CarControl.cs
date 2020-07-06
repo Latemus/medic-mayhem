@@ -13,19 +13,6 @@ public class CarControl : MonoBehaviour {
 
   public KeyCode brakeKey;
 
-  // Wheel Wrapping Objects
-  public Transform frontLeftWheelWrapper;
-  public Transform frontRightWheelWrapper;
-  public Transform rearLeftWheelWrapper;
-  public Transform rearRightWheelWrapper;
-
-  // Wheel Meshes
-  // Front
-  public Transform frontLeftWheelMesh;
-  public Transform frontRightWheelMesh;
-  // Rear
-  public Transform rearLeftWheelMesh;
-  public Transform rearRightWheelMesh;
 
   // Wheel Colliders
   // Front
@@ -44,15 +31,19 @@ public class CarControl : MonoBehaviour {
   // car's center of mass
   public Vector3 centerOfMass = new Vector3(0f, 0f, 0f); // unchanged
 
+  // PRIVATE
   // GUI
   //...
-  public float RO_speed; // DISPLAY ONLY
-  public float RO_EngineTorque; // DISPLAY ONLY
-  public float RO_SteeringAngleFL; // DISPLAY ONLY
-  public float RO_SteeringAngleFR; // DISPLAY ONLY
-  public float RO_BrakeTorque; // DISPLAY ONLY
-
-  // PRIVATE
+  [SerializeField]
+  private float RO_speed;
+  [SerializeField]
+  private float RO_EngineTorque; 
+  [SerializeField]
+  private float RO_SteeringAngleFL; 
+  [SerializeField]
+  private float RO_SteeringAngleFR; 
+  [SerializeField]
+  private float RO_BrakeTorque; 
 
   // acceleration increment counter
   private float torquePower = 0f;
@@ -60,46 +51,9 @@ public class CarControl : MonoBehaviour {
   // turn increment counter
   private float steerAngle = 0f;
 
-  // original wheel positions
-  // Front Left
-  private float wheelMeshWrapperFLx;
-  private float wheelMeshWrapperFLy;
-  private float wheelMeshWrapperFLz;
-  // Front Right
-  private float wheelMeshWrapperFRx;
-  private float wheelMeshWrapperFRy;
-  private float wheelMeshWrapperFRz;
-  // Rear Left
-  private float wheelMeshWrapperRLx;
-  private float wheelMeshWrapperRLy;
-  private float wheelMeshWrapperRLz;
-  // Rear Right
-  private float wheelMeshWrapperRRx;
-  private float wheelMeshWrapperRRy;
-  private float wheelMeshWrapperRRz;
-
 
   void Start () {
     GetComponent<Rigidbody>().centerOfMass = centerOfMass;
-
-    // Setup initial values
-
-    // Front Left
-    // wheelMeshWrapperFLx = frontLeftWheelWrapper.localPosition.x;
-    // wheelMeshWrapperFLy = frontLeftWheelWrapper.localPosition.y;
-    // wheelMeshWrapperFLz = frontLeftWheelWrapper.localPosition.z;
-    // Front Right
-    // wheelMeshWrapperFRx = frontRightWheelWrapper.localPosition.x;
-    // wheelMeshWrapperFRy = frontRightWheelWrapper.localPosition.y;
-    // wheelMeshWrapperFRz = frontRightWheelWrapper.localPosition.z;
-    // Rear Left
-    // wheelMeshWrapperRLx = rearLeftWheelWrapper.localPosition.x;
-    // wheelMeshWrapperRLy = rearLeftWheelWrapper.localPosition.y;
-    // wheelMeshWrapperRLz = rearLeftWheelWrapper.localPosition.z;
-    // Rear Right
-    // wheelMeshWrapperRRx = rearRightWheelWrapper.localPosition.x;
-    // wheelMeshWrapperRRy = rearRightWheelWrapper.localPosition.y;
-    // wheelMeshWrapperRRz = rearRightWheelWrapper.localPosition.z;
   }
 
 
@@ -108,18 +62,6 @@ public class CarControl : MonoBehaviour {
     if (! driveable) {
       return;
     }
-
-    // SETUP WHEEL MESHES
-
-    // Turn the mesh wheels
-    frontLeftWheelWrapper.localEulerAngles = new Vector3(0, steerAngle, 0);
-    frontRightWheelWrapper.localEulerAngles = new Vector3(0, steerAngle, 0);
-
-    // Wheel rotation
-    frontLeftWheelMesh.Rotate(0, wheelFL.rpm / 60 * 360 * Time.deltaTime, 0);
-    frontRightWheelMesh.Rotate(0, wheelFR.rpm / 60 * 360 * Time.deltaTime, 0);
-    rearLeftWheelMesh.Rotate(0, wheelRL.rpm / 60 * 360 * Time.deltaTime, 0);
-    rearRightWheelMesh.Rotate(0, wheelRR.rpm / 60 * 360 * Time.deltaTime, 0);
 
     // Audio
     GetComponent<AudioSource>().pitch = (torquePower / maxTorque) + 0.5f;
