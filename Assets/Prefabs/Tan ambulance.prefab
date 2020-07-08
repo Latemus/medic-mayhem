@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4811683226334337027, guid: 611e8b6fd54b64df3b3391231e0a9151, type: 3}
+  - {fileID: 2100000, guid: 365973270d966694d9aa37090086a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -476,7 +476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4811683226334337027, guid: 611e8b6fd54b64df3b3391231e0a9151, type: 3}
+  - {fileID: 2100000, guid: 365973270d966694d9aa37090086a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -689,6 +689,7 @@ GameObject:
   - component: {fileID: 6186709267047954780}
   - component: {fileID: 6186709267047954781}
   - component: {fileID: 726878349089740315}
+  - component: {fileID: -9120907392887908768}
   m_Layer: 0
   m_Name: Tan ambulance
   m_TagString: ambulanceParent
@@ -705,7 +706,7 @@ Transform:
   m_GameObject: {fileID: 6186709267047954782}
   m_LocalRotation: {x: 0, y: 0.9256232, z: 0, w: 0.37844664}
   m_LocalPosition: {x: -33.4, y: 1.3642077, z: 7.2}
-  m_LocalScale: {x: 3.203647, y: 3.203647, z: 3.203647}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 6186709266328867761}
   - {fileID: 6186709266574056930}
@@ -874,6 +875,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &-9120907392887908768
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186709267047954782}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6186709267627801061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,7 +1050,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4811683226334337027, guid: 611e8b6fd54b64df3b3391231e0a9151, type: 3}
+  - {fileID: 2100000, guid: 365973270d966694d9aa37090086a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1167,7 +1190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4811683226334337027, guid: 611e8b6fd54b64df3b3391231e0a9151, type: 3}
+  - {fileID: 2100000, guid: 365973270d966694d9aa37090086a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -628,7 +628,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 77b45c9e9e6494959b4e0190b6a7710b, type: 2}
+  - {fileID: 2100000, guid: a0221fd6344744cb4bfe721af796719f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -860,7 +860,7 @@ Transform:
   m_GameObject: {fileID: 7804120539913217156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.32, y: 0, z: 2.6723926}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 7804120538884150848}
   - {fileID: 7804120539591852953}
@@ -1062,7 +1062,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7804120539913217156}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 1.2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1072,7 +1072,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 10
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &7804120539917557926
@@ -1223,7 +1223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 77b45c9e9e6494959b4e0190b6a7710b, type: 2}
+  - {fileID: 2100000, guid: a0221fd6344744cb4bfe721af796719f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
