@@ -13,6 +13,7 @@
 
 
 ## Medium
+- Tee Iconi uudestaan, esim. vihreä sotilas pelkästään
 - Istunnon pistetilanne tulemaan samalla tavalla kuin teksti kumpi voitti, mutta tyylikkäästi yksi kerrallaan sekunnin viiveellä "tsum, tsum, tsum"
 - Potilaat kotiutumaan sekunnin välein, vaikka tulevat samaan aikaan hoitoon
 
