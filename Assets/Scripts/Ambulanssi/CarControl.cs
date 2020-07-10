@@ -1,18 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class CarControl : MonoBehaviour {
-
   // PUBLIC
-
   public bool driveable = false;
-
   public string upAndDownArrowsWithScheme = "Vertical";
-
   public string leftAndRightArrowsWithScheme = "Horizontal";
-
-  public KeyCode brakeKey;
-
 
   // Wheel Colliders
   // Front
@@ -45,104 +39,120 @@ public class CarControl : MonoBehaviour {
   [SerializeField]
   private float RO_BrakeTorque; 
 
-  // acceleration increment counter
   private float torquePower = 0f;
-
-  // turn increment counter
   private float steerAngle = 0f;
-
+  private GameObject home_hospital; 
+  private float playerInactivityTimer = 0f;
 
   void Start () {
     GetComponent<Rigidbody>().centerOfMass = centerOfMass;
+    GetComponent<NavMeshAgent>().updatePosition = false;
+    home_hospital = GameObject.FindWithTag("tan_hospital");
   }
 
-
-  // Visual updates
-  void Update () {
-    if (! driveable) {
-      return;
+  void FixedUpdate() 
+  {
+    //GetComponent<AudioSource>().pitch = (torquePower / maxTorque) + 0.5f;
+    if (AIisNotActive()) 
+    {
+      AddPlayerInputForSteering();
     }
-
-    // Audio
-    GetComponent<AudioSource>().pitch = (torquePower / maxTorque) + 0.5f;
+    else 
+    {
+      AddAIinputForSteering();
+    }
+    ApplyTorgue();
+    #if UNITY_EDITOR
+    UpdateDebugInfoInEditor();
+    #endif
   }
 
-  // Physics updates
-  void FixedUpdate () {
-    if (! driveable) {
-      return;
+  // Checks if the AI should be activated or not
+  private bool AIisNotActive() 
+  {
+    if(anyOfThePlayerButtonsArePressed())
+    {
+      playerInactivityTimer = Time.time + 10.0f;
     }
-
-    // CONTROLS - FORWARD & RearWARD
-    if ( Input.GetKey(brakeKey) ) {
-      // BRAKE
-      torquePower = 0f;
-      wheelRL.brakeTorque = brakeTorque;
-      wheelRR.brakeTorque = brakeTorque;
-    } else {
-      // SPEED
-      torquePower = maxTorque * Mathf.Clamp( Input.GetAxis(upAndDownArrowsWithScheme), -1, 1 );
-      wheelRL.brakeTorque = 0f;
-      wheelRR.brakeTorque = 0f;
-
+    else if(playerInactivityTimer < Time.time)
+    {
+      // AI is active, because of player inactivity
+      return false;
     }
-    // Apply torque
+    // AI is not active, because of player activity
+    return true; 
+  }
+
+  private bool anyOfThePlayerButtonsArePressed() 
+  {
+    if (Input.GetAxis(upAndDownArrowsWithScheme) != 0 || Input.GetAxis(leftAndRightArrowsWithScheme) != 0)
+    {
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
+  }
+
+  private void AddPlayerInputForSteering() 
+  {
+    torquePower = maxTorque * Mathf.Clamp( Input.GetAxis(upAndDownArrowsWithScheme), -1, 1 );
+    steerAngle = maxWheelTurnAngle * Input.GetAxis(leftAndRightArrowsWithScheme);
+  }
+  private void AddAIinputForSteering() 
+  {
+    // TODO
+    // If I have passenger, target is hospital
+    GameObject target = null;
+    if (GetComponent<AmbulanceStatus>().soldierCount > 0) 
+    {
+      target = home_hospital;
+    }
+    else if (target == null)
+    {
+      // If there are wounded soldiers, target is wounded soldier
+      target = GameObject.FindWithTag("woundedSoldier");
+    }
+    if (target != null)
+    {
+      // Toggle this when hospital is target? 
+      //GetComponent<NavMeshAgent>().enabled = false;
+      //GetComponent<NavMeshAgent>().enabled = true;
+      GetComponent<NavMeshAgent>().SetDestination(target.transform.position);
+      float angleBetweenTargetAndFacing = Vector3.SignedAngle(transform.position - GetComponent<NavMeshAgent>().steeringTarget, transform.forward, Vector3.up);
+      steerAngle = Mathf.Clamp(angleBetweenTargetAndFacing, -maxWheelTurnAngle, maxWheelTurnAngle);
+      Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
+      Debug.DrawRay(transform.position, GetComponent<NavMeshAgent>().steeringTarget - transform.position, Color.blue);
+      torquePower = maxTorque;
+    }
+    else
+    {
+      steerAngle = 0;
+      torquePower = 0;
+    }
+  }
+
+  // Updates the values visible in the Unity Editor for debug purposes
+  private void UpdateDebugInfoInEditor()
+  {
+    RO_SteeringAngleFL = wheelFL.steerAngle;
+    RO_SteeringAngleFR = wheelFR.steerAngle;
+    RO_EngineTorque = torquePower;
+    RO_speed = GetComponent<Rigidbody>().velocity.magnitude;
+  }
+  
+  // Apply torque to the wheels
+  private void ApplyTorgue() 
+  {
     wheelFR.motorTorque = torquePower;
     wheelFL.motorTorque = torquePower;
     wheelRR.motorTorque = torquePower;
     wheelRL.motorTorque = torquePower;
-
-
-    /*// Debug.Log(Input.GetAxis("Vertical"));
-    Debug.Log("torquePower: " + torquePower);
-    Debug.Log("brakeTorque RL: " + wheelRL.brakeTorque);
-    Debug.Log("brakeTorque RR: " + wheelRR.brakeTorque);
-    Debug.Log("steerAngle: " + steerAngle);*/
-
-    // CONTROLS - LEFT & RIGHT
-    // apply steering to front wheels
-    steerAngle = maxWheelTurnAngle * Input.GetAxis(leftAndRightArrowsWithScheme);
     wheelFL.steerAngle = steerAngle;
     wheelFR.steerAngle = steerAngle;
     wheelRL.steerAngle = -steerAngle/4f;
     wheelRR.steerAngle = -steerAngle/4f;
-
-    // Debug info
-    RO_BrakeTorque = wheelRL.brakeTorque;
-    RO_SteeringAngleFL = wheelFL.steerAngle;
-    RO_SteeringAngleFR = wheelFR.steerAngle;
-    RO_EngineTorque = torquePower;
-
-    // SPEED
-    // debug info
-    RO_speed = GetComponent<Rigidbody>().velocity.magnitude;
-
-    // KEYBOARD INPUT
-
-    // FORWARD
-    if ( Input.GetKey(KeyCode.W) ) {
-      // Debug.Log("FORWARD");
-    }
-
-    // BACKWARD
-    if ( Input.GetKey(KeyCode.S) ) {
-      // Debug.Log("BACKWARD");
-    }
-
-    // LEFT
-    if ( Input.GetKey(KeyCode.A) ) {
-      // Debug.Log("LEFT");
-    }
-
-    // RIGHT
-    if ( Input.GetKey(KeyCode.D) ) {
-      // Debug.Log("RIGHT");
-    }
-
-    // BRAKE
-    if ( Input.GetKey(KeyCode.Space) ) {
-      // Debug.Log("SPACE");
-    }
-
   }
 }
+

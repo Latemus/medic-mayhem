@@ -4,33 +4,21 @@ using UnityEngine;
 
 public class AmbulanceStatus : MonoBehaviour
 {
-
     public int soldierCount = 0;
-    public int maxSoldiers = 5;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public bool HasSpace()
-    {
-        return soldierCount < maxSoldiers;
-    }
-
-    public void AddSoldier()
-    {
-        if (soldierCount < maxSoldiers)
+        if (other.tag == "woundedSoldier")
         {
             soldierCount += 1;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "woundedSoldier")
+        {
+            soldierCount -= 1;
         }
     }
 }

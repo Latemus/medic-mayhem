@@ -14,19 +14,12 @@ public class WoundedSoldier : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "ambulance" && collider.transform.parent.gameObject.GetComponent<AmbulanceStatus>().HasSpace())
+        if (collider.tag == "ambulance")
         {
             this.transform.position = collider.transform.parent.gameObject.transform.GetChild(0).transform.position + new Vector3 (0, 0.25f, 0);
             this.GetComponent<BoxCollider>().enabled = false;
-
         }
     }
 

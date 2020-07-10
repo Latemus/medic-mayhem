@@ -92,5 +92,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green ambulance (Variant of Tan)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5604512854650015448, guid: cc9af38cd2443594697daaeb713fe147, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cc9af38cd2443594697daaeb713fe147, type: 3}

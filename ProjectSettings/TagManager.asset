@@ -11,6 +11,8 @@ TagManager:
   - Tan
   - truckBed
   - bullet
+  - green_hospital
+  - tan_hospital
   layers:
   - Default
   - TransparentFX
