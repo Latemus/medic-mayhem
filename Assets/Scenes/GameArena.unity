@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1811643, g: 0.16826946, b: 0.15292618, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -33,12 +33,12 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 16
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.135
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2086845633}
-  m_IndirectSpecularColor: {r: 0.2062511, g: 0.2224004, b: 0.2719852, a: 1}
+  m_IndirectSpecularColor: {r: 0.0278439, g: 0.030024055, b: 0.036718003, a: 0.135}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -203,25 +203,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -9120907392887908768, guid: cc9af38cd2443594697daaeb713fe147,
+    - target: {fileID: 5626419974256175543, guid: cc9af38cd2443594697daaeb713fe147,
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 726878349089740315, guid: cc9af38cd2443594697daaeb713fe147,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186709266884982502, guid: cc9af38cd2443594697daaeb713fe147,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186709266884982502, guid: cc9af38cd2443594697daaeb713fe147,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6186709267047954777, guid: cc9af38cd2443594697daaeb713fe147,
         type: 3}
@@ -283,8 +268,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tan ambulance
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5604512854650015448, guid: cc9af38cd2443594697daaeb713fe147, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc9af38cd2443594697daaeb713fe147, type: 3}
 --- !u!1001 &362304358
 PrefabInstance:
@@ -2209,6 +2193,25 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 8361000896348559983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2099262009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086845632, guid: 6daa56a2f6f634ec287609fdd44efc25,
+    type: 3}
+  m_PrefabInstance: {fileID: 8361000896348559983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2099262011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099262009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UsePipelineSettings: 1
 --- !u!1001 &2113727575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2379,6 +2382,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.00003
       objectReference: {fileID: 0}
+    - target: {fileID: 2086845633, guid: 6daa56a2f6f634ec287609fdd44efc25, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.729
+      objectReference: {fileID: 0}
     - target: {fileID: 2434365062366520035, guid: 6daa56a2f6f634ec287609fdd44efc25,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2509,6 +2516,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8361000895177013457, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_TagString
+      value: green_hospital
+      objectReference: {fileID: 0}
     - target: {fileID: 8361000895263405093, guid: 6daa56a2f6f634ec287609fdd44efc25,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2568,6 +2580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361000895745349110, guid: 6daa56a2f6f634ec287609fdd44efc25,
+        type: 3}
+      propertyPath: m_TagString
+      value: tan_hospital
       objectReference: {fileID: 0}
     - target: {fileID: 8361000895947519225, guid: 6daa56a2f6f634ec287609fdd44efc25,
         type: 3}

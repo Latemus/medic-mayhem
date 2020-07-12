@@ -27,7 +27,6 @@ public class CarControl : MonoBehaviour {
 
   // PRIVATE
   // GUI
-  //...
   [SerializeField]
   private float RO_speed;
   [SerializeField]
@@ -131,6 +130,16 @@ public class CarControl : MonoBehaviour {
       steerAngle = 0;
       torquePower = 0;
     }
+  }
+
+  // Check how many wounded soldiers are inside the cargobay
+  private void CheckNumberOfPassengers() 
+  {
+    // TODO: 
+    //Use the OverlapBox to detect if there are any other colliders within this box area.
+    //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject. 
+    //Vector3 overlapBoxScale = new Vector3(transform.localScale.)
+    //Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position + new Vector3(0, 0.04, -0.17), transform.localScale, Quaternion.identity, m_LayerMask);
   }
 
   // Updates the values visible in the Unity Editor for debug purposes

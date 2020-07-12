@@ -1,12 +1,13 @@
 # TODO
 
 ## Tärkeä
-- AI navmesh ambulanssille ja tekoälyn toteutus
+- AI ambulanssille
 - Sotilaista prefab
 - Sotilaan navigoinnin refaktorointi
     - NavMesgAgentilta pyydetään ainoastaan seuraava sijainti, mutta updatePosition = false
 - Sotilaiden levittäytyminen kartalle, esim. pitävät 5 metrin välit ja jokainen sotilas valitsee itselleen viholliskohteen, jota kukaan muu ei ole vielä valinnut. 
 - Jousituksen ja iskareiden "löysyttäminen", jotta autot pomppii hauskasti
+- Kitkan lisääminen renkaisiin
 
 
 ## Medium
