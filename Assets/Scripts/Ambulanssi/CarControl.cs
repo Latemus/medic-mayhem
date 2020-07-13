@@ -7,6 +7,7 @@ public class CarControl : MonoBehaviour {
   public bool driveable = false;
   public string upAndDownArrowsWithScheme = "Vertical";
   public string leftAndRightArrowsWithScheme = "Horizontal";
+  public string hospitalTag = "tan_hospital";
 
   // Wheel Colliders
   // Front
@@ -28,6 +29,8 @@ public class CarControl : MonoBehaviour {
   // PRIVATE
   // GUI
   [SerializeField]
+  private float angleBetweenTargetAndFacing;
+  [SerializeField]
   private float RO_speed;
   [SerializeField]
   private float RO_EngineTorque; 
@@ -37,16 +40,20 @@ public class CarControl : MonoBehaviour {
   private float RO_SteeringAngleFR; 
   [SerializeField]
   private float RO_BrakeTorque; 
+  [SerializeField]
+  private GameObject target; 
 
   private float torquePower = 0f;
   private float steerAngle = 0f;
   private GameObject home_hospital; 
   private float playerInactivityTimer = 0f;
+  private float aiRepathingTimer = 0f;
 
   void Start () {
     GetComponent<Rigidbody>().centerOfMass = centerOfMass;
     GetComponent<NavMeshAgent>().updatePosition = false;
-    home_hospital = GameObject.FindWithTag("tan_hospital");
+    GetComponent<NavMeshAgent>().updateRotation = false;
+    home_hospital = GameObject.FindWithTag(hospitalTag);
   }
 
   void FixedUpdate() 
@@ -101,9 +108,14 @@ public class CarControl : MonoBehaviour {
   }
   private void AddAIinputForSteering() 
   {
-    // TODO
-    // If I have passenger, target is hospital
-    GameObject target = null;
+    GetComponent<NavMeshAgent>().nextPosition = transform.position;
+    target = null;
+    if (Vector3.Distance(home_hospital.transform.position, transform.position) < 5) 
+    {
+      target = null;
+      GetComponent<AmbulanceStatus>().soldierCount = 0;
+    }
+
     if (GetComponent<AmbulanceStatus>().soldierCount > 0) 
     {
       target = home_hospital;
@@ -116,13 +128,19 @@ public class CarControl : MonoBehaviour {
     if (target != null)
     {
       // Toggle this when hospital is target? 
-      //GetComponent<NavMeshAgent>().enabled = false;
-      //GetComponent<NavMeshAgent>().enabled = true;
-      GetComponent<NavMeshAgent>().SetDestination(target.transform.position);
-      float angleBetweenTargetAndFacing = Vector3.SignedAngle(transform.position - GetComponent<NavMeshAgent>().steeringTarget, transform.forward, Vector3.up);
-      steerAngle = Mathf.Clamp(angleBetweenTargetAndFacing, -maxWheelTurnAngle, maxWheelTurnAngle);
-      Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
-      Debug.DrawRay(transform.position, GetComponent<NavMeshAgent>().steeringTarget - transform.position, Color.blue);
+
+      if (Time.time > aiRepathingTimer)
+      {
+        aiRepathingTimer += 2; 
+        //GetComponent<NavMeshAgent>().enabled = false;
+        //GetComponent<NavMeshAgent>().enabled = true;
+        GetComponent<NavMeshAgent>().destination = target.transform.position;
+      }
+
+      angleBetweenTargetAndFacing = Vector3.SignedAngle(transform.position - GetComponent<NavMeshAgent>().steeringTarget, -transform.forward, Vector3.up);
+      steerAngle = Mathf.Clamp(-angleBetweenTargetAndFacing, -maxWheelTurnAngle, maxWheelTurnAngle);
+      Debug.DrawRay(transform.position, transform.forward * 6, Color.blue);
+      Debug.DrawRay(transform.position, GetComponent<NavMeshAgent>().steeringTarget - transform.position, Color.red);
       torquePower = maxTorque;
     }
     else
@@ -135,12 +153,23 @@ public class CarControl : MonoBehaviour {
   // Check how many wounded soldiers are inside the cargobay
   private void CheckNumberOfPassengers() 
   {
-    // TODO: 
     //Use the OverlapBox to detect if there are any other colliders within this box area.
     //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject. 
-    //Vector3 overlapBoxScale = new Vector3(transform.localScale.)
-    //Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position + new Vector3(0, 0.04, -0.17), transform.localScale, Quaternion.identity, m_LayerMask);
+    Vector3 overlapBoxScale = new Vector3(0.77f, 0.53f, 1.06f); // These values were determined with the editor with eyeballing
+    Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(0f, 0.04f, -0.17f), 
+                                                Vector3.Scale(transform.localScale, overlapBoxScale) / 2, 
+                                                transform.rotation, 
+                                                0);
   }
+  #if UNITY_EDITOR
+  void OnDrawGizmos()
+  {
+    Vector3 overlapBoxScale = new Vector3(0.77f, 0.53f, 1.06f); // These values were determined with the editor with eyeballing
+    Gizmos.color = Color.green;
+    Gizmos.matrix = transform.localToWorldMatrix;
+    Gizmos.DrawWireCube(new Vector3(0f, 0.04f, -0.17f), overlapBoxScale);
+  }
+  #endif
 
   // Updates the values visible in the Unity Editor for debug purposes
   private void UpdateDebugInfoInEditor()

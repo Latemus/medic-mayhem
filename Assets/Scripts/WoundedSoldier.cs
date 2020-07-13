@@ -37,4 +37,13 @@ public class WoundedSoldier : MonoBehaviour
         yield return new WaitForSeconds(2);
         this.GetComponent<BoxCollider>().enabled = true;
     } 
+
+    public void FixedUpdate() 
+    {
+        if (transform.position.y < -5)
+        {
+            transform.position = new Vector3(0, 5, 0);
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+    }
 }

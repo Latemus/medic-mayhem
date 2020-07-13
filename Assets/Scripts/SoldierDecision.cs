@@ -86,12 +86,17 @@ public class SoldierDecision : MonoBehaviour
         }
         else 
         {
-            if (Check_if_enemies_are_nearby())
+            GameObject target = null;
+            if(gameObject.tag == "Tan")
             {
-                return;
+                target = GameObject.FindWithTag("Green");
+            }
+            else
+            {
+                target = GameObject.FindWithTag("Tan");
             }
             // Move towards enemy base
-            MoveCharacter(enemyBase.transform.position);
+            MoveCharacter(target.transform.position);
         }
     }
 

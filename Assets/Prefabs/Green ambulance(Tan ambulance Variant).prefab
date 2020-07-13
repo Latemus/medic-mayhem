@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 6186709267047954777, guid: cc9af38cd2443594697daaeb713fe147,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.32
+      value: -35.06
       objectReference: {fileID: 0}
     - target: {fileID: 6186709267047954777, guid: cc9af38cd2443594697daaeb713fe147,
         type: 3}
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 6186709267047954777, guid: cc9af38cd2443594697daaeb713fe147,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.56
+      value: -5.53
       objectReference: {fileID: 0}
     - target: {fileID: 6186709267047954777, guid: cc9af38cd2443594697daaeb713fe147,
         type: 3}
@@ -86,6 +86,11 @@ PrefabInstance:
         type: 3}
       propertyPath: leftAndRightArrowsWithScheme
       value: Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186709267047954780, guid: cc9af38cd2443594697daaeb713fe147,
+        type: 3}
+      propertyPath: hospitalTag
+      value: green_hospital
       objectReference: {fileID: 0}
     - target: {fileID: 6186709267047954782, guid: cc9af38cd2443594697daaeb713fe147,
         type: 3}

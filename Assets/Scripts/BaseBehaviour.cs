@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseBehaviour : MonoBehaviour
 {
     public GameObject WinAnimation;
+    public GameObject Score;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class BaseBehaviour : MonoBehaviour
     void OnDestroy()
     {
         WinAnimation.GetComponent<WinTextAnimation>().victory = true; 
+        Score.GetComponent<WinTextAnimation>().victory = true; 
         GameStateController.instance.ResetGame();        
     }
 }

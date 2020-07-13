@@ -1,58 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3863463452621876512
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6888443367106289499}
-  - component: {fileID: 1243097287805065070}
-  m_Layer: 0
-  m_Name: NavMeshAgentCenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6888443367106289499
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3863463452621876512}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 1.254}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6186709267047954777}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!195 &1243097287805065070
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3863463452621876512}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0.4
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &5247101945772998661
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,19 +203,19 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 1
+  m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.1
+    m_ExtremumSlip: 0.004
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.1
+    m_AsymptoteSlip: 0.008
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.01
+    m_ExtremumSlip: 0.002
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.02
+    m_AsymptoteSlip: 0.005
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
@@ -317,19 +264,19 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 1
+  m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.1
+    m_ExtremumSlip: 0.004
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.1
+    m_AsymptoteSlip: 0.008
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
+    m_ExtremumSlip: 0.002
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.7
+    m_AsymptoteSlip: 0.005
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
@@ -821,7 +768,6 @@ GameObject:
   - component: {fileID: 6186709267047954780}
   - component: {fileID: 726878349089740315}
   - component: {fileID: -9120907392887908768}
-  - component: {fileID: 5626419974256175543}
   - component: {fileID: 5823014933490005226}
   m_Layer: 0
   m_Name: Tan ambulance
@@ -851,7 +797,6 @@ Transform:
   - {fileID: 6186709267627801060}
   - {fileID: 6186709266996785577}
   - {fileID: 7666687073011834738}
-  - {fileID: 6888443367106289499}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -863,7 +808,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6186709267047954782}
   serializedVersion: 2
-  m_Mass: 500
+  m_Mass: 1000
   m_Drag: 0.4
   m_AngularDrag: 0.4
   m_UseGravity: 1
@@ -886,14 +831,16 @@ MonoBehaviour:
   driveable: 1
   upAndDownArrowsWithScheme: Vertical-P2
   leftAndRightArrowsWithScheme: Horizontal-P2
+  hospitalTag: tan_hospital
   wheelFL: {fileID: 6186709267703343474}
   wheelFR: {fileID: 6186709266176882426}
   wheelRL: {fileID: 6186709267995298265}
   wheelRR: {fileID: 6186709266304292359}
-  maxTorque: 500
+  maxTorque: 800
   brakeTorque: 100
   maxWheelTurnAngle: 35
   centerOfMass: {x: 0, y: 0, z: 1}
+  angleBetweenTargetAndFacing: 0
   RO_speed: 0
   RO_EngineTorque: 0
   RO_SteeringAngleFL: 0
@@ -1017,19 +964,6 @@ NavMeshAgent:
   m_BaseOffset: 0.41
   m_WalkableMask: 3
   m_ObstacleAvoidanceType: 2
---- !u!65 &5626419974256175543
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6186709267047954782}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.77, y: 0.53, z: 1.06}
-  m_Center: {x: 0, y: 0.04, z: -0.17}
 --- !u!114 &5823014933490005226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,19 +1056,19 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 1
+  m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.1
+    m_ExtremumSlip: 0.004
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.1
+    m_AsymptoteSlip: 0.008
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.01
+    m_ExtremumSlip: 0.002
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.02
+    m_AsymptoteSlip: 0.005
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
@@ -1262,19 +1196,19 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 1
+  m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.1
+    m_ExtremumSlip: 0.004
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.1
+    m_AsymptoteSlip: 0.008
     m_AsymptoteValue: 0.5
-    m_Stiffness: 5
+    m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
+    m_ExtremumSlip: 0.002
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.7
+    m_AsymptoteSlip: 0.005
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
