@@ -57,9 +57,9 @@ public class SoldierDecision : MonoBehaviour
         {
             toEnemy = currentEnemy.transform.position - transform.position;
         }
-        if (currentEnemy != null && toEnemy.sqrMagnitude <= detectionRadius * detectionRadius)
+        if (currentEnemy != null)
         {
-            if (toEnemy.sqrMagnitude <= detectionRadius * detectionRadius && Time.time > nextFire)
+            if (Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 Quaternion quaternionToPlayer = Quaternion.Euler(toEnemy);
