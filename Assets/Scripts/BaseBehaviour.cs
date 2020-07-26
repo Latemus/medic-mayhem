@@ -7,21 +7,21 @@ public class BaseBehaviour : MonoBehaviour
     public GameObject WinAnimation;
     public GameObject Score;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnDestroy()
-    {
-        WinAnimation.GetComponent<WinTextAnimation>().victory = true; 
-        GameStateController.instance.ResetGame();        
+    {   
+        if (WinAnimation != null)
+        {
+            WinAnimation.GetComponent<WinTextAnimation>().victory = true;
+            int winning_team; 
+            if (this.gameObject.CompareTag("Green"))
+            {
+                winning_team = 1;
+            }
+            else 
+            {
+                winning_team = 0;
+            }
+            GameStateController.instance.ResetGame(winning_team);
+        }
     }
 }
