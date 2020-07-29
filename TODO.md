@@ -1,6 +1,10 @@
-# TODO
+# 1.3.0 uudet ominaisuudet
 
 - Istunnon pistetilanne tulemaan samalla tavalla kuin teksti kumpi voitti, mutta tyylikkäästi yksi kerrallaan sekunnin viiveellä "tsum, tsum, tsum"
+- 
+
+# TODO
+
 - Laita ruumiiden spawn koordinaatit paremmaksi kun ne tulevat kyytiin
 - Laita ruumiille nopeutta kun ne tulevat kyytiin
 - Paranna ambulanssin lavan hitboxeja jos tarpeen? 
@@ -12,4 +16,5 @@
 - Main Menu
 - Esc -> return to main menu/continue
 - Nelinpeli
-
+- Healthbarit baseille? 
+- Lisää ääniefektejä

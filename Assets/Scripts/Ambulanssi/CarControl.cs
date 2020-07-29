@@ -150,17 +150,6 @@ public class CarControl : MonoBehaviour {
     }
   }
 
-  // Check how many wounded soldiers are inside the cargobay
-  private void CheckNumberOfPassengers() 
-  {
-    //Use the OverlapBox to detect if there are any other colliders within this box area.
-    //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject. 
-    Vector3 overlapBoxScale = new Vector3(0.77f, 0.53f, 1.06f); // These values were determined with the editor with eyeballing
-    Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(0f, 0.04f, -0.17f), 
-                                                Vector3.Scale(transform.localScale, overlapBoxScale) / 2, 
-                                                transform.rotation, 
-                                                0);
-  }
   #if UNITY_EDITOR
   void OnDrawGizmos()
   {

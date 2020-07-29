@@ -10,7 +10,6 @@ public class WoundedSoldier : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ambulance = GameObject.FindWithTag("ambulanceParent");
         rb = GetComponent<Rigidbody>();
     }
 

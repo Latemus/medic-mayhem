@@ -6,16 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameStateController : MonoBehaviour
 {
     public static GameStateController instance;
-    public static int number_of_green_wins; 
-    public static int number_of_tan_wins;
-    public int green_wins;
-    public int tan_wins;
+    public GameStateController gamestatecontroller;
+    public int number_of_green_wins; 
+    public int number_of_tan_wins;
+    public GameObject win_texts;
 
     #if UNITY_EDITOR
     void Update()
     {
-        green_wins = number_of_green_wins;
-        tan_wins = number_of_tan_wins;
+        // gamestatecontroller = instance;
     }
     #endif
 
@@ -26,13 +25,19 @@ public class GameStateController : MonoBehaviour
         if (instance == null) 
         {
             instance = this;
+            DontDestroyOnLoad(this);
             number_of_green_wins = 0;
             number_of_tan_wins = 0;
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        win_texts = GameObject.Find("WinTexts");
     }
 
     // who_won variable tells which team won, 0 for green, 1 for tan
@@ -46,6 +51,8 @@ public class GameStateController : MonoBehaviour
         {
             number_of_tan_wins += 1;
         }
+        win_texts = GameObject.Find("WinTexts");
+        win_texts.GetComponent<WinTextController>().GameEnd(who_won);
         StartCoroutine(WaitAndReset()); 
     }
 
