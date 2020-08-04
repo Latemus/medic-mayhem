@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class CarControl : MonoBehaviour {
   // PUBLIC
-  public bool driveable = false;
+  public int playerNumber = 1;
   public string upAndDownArrowsWithScheme = "Vertical";
   public string leftAndRightArrowsWithScheme = "Horizontal";
   public string hospitalTag = "tan_hospital";
@@ -49,12 +49,19 @@ public class CarControl : MonoBehaviour {
   private float playerInactivityTimer = 0f;
   private float aiRepathingTimer = 0f;
 
+
   void Start () {
+    if (NumberOfPlayers.instance.number_of_players_per_team * 2 < playerNumber)
+    {
+      gameObject.SetActive(false);
+    }
+
     GetComponent<Rigidbody>().centerOfMass = centerOfMass;
     GetComponent<NavMeshAgent>().updatePosition = false;
     GetComponent<NavMeshAgent>().updateRotation = false;
     home_hospital = GameObject.FindWithTag(hospitalTag);
   }
+
 
   void FixedUpdate() 
   {

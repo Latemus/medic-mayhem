@@ -1,20 +1,16 @@
-# 1.3.0 uudet ominaisuudet
+# 1.3.0 Patch notes
 
 - Istunnon pistetilanne tulemaan samalla tavalla kuin teksti kumpi voitti, mutta tyylikkäästi yksi kerrallaan sekunnin viiveellä "tsum, tsum, tsum"
-- 
+- Performance optimizations, removing un-used code etc. 
 
 # TODO
 
-- Laita ruumiiden spawn koordinaatit paremmaksi kun ne tulevat kyytiin
-- Laita ruumiille nopeutta kun ne tulevat kyytiin
-- Paranna ambulanssin lavan hitboxeja jos tarpeen? 
-- Sotilaat hyppelemään taas iloisesti
 - Lisenssit kuntoon
 - Tee Iconi uudestaan, esim. vihreä sotilas pelkästään
 - README.md kirjoittaminen, esim. screenshotteja pelistä
-- Paranna ajotuntumaa
 - Main Menu
 - Esc -> return to main menu/continue
 - Nelinpeli
 - Healthbarit baseille? 
 - Lisää ääniefektejä
+- itch.io sivulle selitys

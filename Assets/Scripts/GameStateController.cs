@@ -11,21 +11,12 @@ public class GameStateController : MonoBehaviour
     public int number_of_tan_wins;
     public GameObject win_texts;
 
-    #if UNITY_EDITOR
-    void Update()
-    {
-        // gamestatecontroller = instance;
-    }
-    #endif
-
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
         if (instance == null) 
         {
             instance = this;
-            DontDestroyOnLoad(this);
             number_of_green_wins = 0;
             number_of_tan_wins = 0;
         }
@@ -33,12 +24,24 @@ public class GameStateController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(this);
     }
 
     void Start()
     {
         win_texts = GameObject.Find("WinTexts");
     }
+
+
+    public void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            StopAllCoroutines();
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
 
     // who_won variable tells which team won, 0 for green, 1 for tan
     public void ResetGame(int who_won) 

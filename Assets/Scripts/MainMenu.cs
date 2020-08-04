@@ -5,19 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void StartGame(int players_per_team)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        NumberOfPlayers.instance.number_of_players_per_team = players_per_team;
+        SceneManager.LoadScene("GameArena");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit");
         Application.Quit();
-    }
-
-    public void NextScene()
-    {
-        SceneManager.LoadScene("Medic Mayhem");
     }
 }
