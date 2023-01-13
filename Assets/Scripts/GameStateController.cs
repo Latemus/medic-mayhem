@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameStateController : MonoBehaviour
 {
     public static GameStateController instance;
-    public GameStateController gamestatecontroller;
     public int number_of_green_wins; 
     public int number_of_tan_wins;
     public GameObject win_texts;
-
 
     void Awake()
     {
@@ -32,10 +30,9 @@ public class GameStateController : MonoBehaviour
         win_texts = GameObject.Find("WinTexts");
     }
 
-
     public void Update()
     {
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             StopAllCoroutines();
             SceneManager.LoadScene("MainMenu");
